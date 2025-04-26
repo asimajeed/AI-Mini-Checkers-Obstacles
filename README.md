@@ -26,7 +26,7 @@ A 6×6 checkers variant featuring dynamic **obstacle** squares that block moveme
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/asimajeed/mini_checkers_obstacles.git
+   git clone https://github.com/your-org/mini_checkers_obstacles.git
    cd mini_checkers_obstacles
    ```
 
@@ -40,6 +40,41 @@ A 6×6 checkers variant featuring dynamic **obstacle** squares that block moveme
    ```bash
    pip install -r requirements.txt
    ```
+
+---
+
+## 🎮 Usage
+
+**Play vs. AI**
+```bash
+python run_game.py [--ai-depth N] [--obstacles M] [--width W] [--height H]
+```
+
+- `--ai-depth` AI search depth in plies (default: `4`)  
+- `--obstacles` Initial obstacle count (default: `2`)  
+- `--width` / `--height` Window dimensions in pixels (default: `600×600`)  
+
+---
+
+## 📂 Project Structure
+
+```
+mini_checkers_obstacles/
+├── README.md
+├── requirements.txt
+├── run_game.py
+└── src/
+    └── checkers/
+        ├── board.py           # Board model + dynamic obstacle logic
+        ├── piece.py           # Piece and promotion logic
+        ├── move_generator.py  # Move & capture generation with obstacles
+        ├── ai/
+        │   ├── minimax.py     # Minimax + alpha–beta pruning
+        │   └── heuristic.py   # Evaluation function (material, mobility, etc.)
+        └── ui/
+            ├── gui.py         # Pygame event loop & input handling
+            └── renderer.py    # Board, pieces & highlight rendering
+```
 
 ---
 
