@@ -1,8 +1,3 @@
-#!/usr/bin/env python3
-"""
-Entry point to launch the Mini-Checkers with Obstacles game (human vs AI).
-"""
-
 import argparse
 import sys
 import pygame

@@ -38,7 +38,7 @@ class MoveGenerator:
             'path':     [ (r0,c0), (r1,c1), ..., (rk,ck) ],
             'captures': [ (cr1,cc1), ..., (crm,ccm) ]
           }
-        Multi‑jumps are explored via DFS.
+        Multi-jumps are explored via DFS.
         """
         all_seqs = []
         # All diagonal directions
