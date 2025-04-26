@@ -6,7 +6,7 @@ Entry point to launch the Mini-Checkers with Obstacles game (human vs AI).
 import argparse
 import sys
 import pygame
-from src.checkers.ui.gui import GameGUI
+from checkers.ui.gui import GameGUI
 
 def main():
     parser = argparse.ArgumentParser(
