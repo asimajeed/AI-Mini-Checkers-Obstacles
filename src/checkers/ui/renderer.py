@@ -78,3 +78,49 @@ class BoardRenderer:
                 if abs(code) == 2:
                     inner_radius = radius // 2
                     pygame.draw.circle(self.screen, (200, 200, 0), center, inner_radius)
+
+
+    def animate_move(self, start, end, selected=None, legal_moves=None):
+        piece = self.board.get_piece(*start)
+        start_x = start[1] * self.tile_size + self.tile_size // 2
+        start_y = start[0] * self.tile_size + self.tile_size // 2
+        end_x = end[1] * self.tile_size + self.tile_size // 2
+        end_y = end[0] * self.tile_size + self.tile_size // 2
+
+        frames = 20
+        dx = (end_x - start_x) / frames
+        dy = (end_y - start_y) / frames
+
+        clock = pygame.time.Clock()
+
+        for frame in range(frames + 1):
+            self.draw(selected, legal_moves)  # normal draw
+
+            # Cover the start square manually to avoid duplicate piece
+            r, c = start
+            rect = pygame.Rect(
+                c * self.tile_size,
+                r * self.tile_size,
+                self.tile_size,
+                self.tile_size
+            )
+            base_color = self.dark_color if (r + c) % 2 else self.light_color
+            pygame.draw.rect(self.screen, base_color, rect)
+
+            if self.board.is_obstacle(r, c):
+                pygame.draw.rect(self.screen, self.obs_color, rect)
+
+            # Draw the moving piece
+            current_x = start_x + dx * frame
+            current_y = start_y + dy * frame
+            color = self.p1_color if piece > 0 else self.p2_color
+            radius = self.tile_size // 2 - 8
+
+            pygame.draw.circle(self.screen, color, (int(current_x), int(current_y)), radius)
+
+            if abs(piece) == 2:  # king indicator
+                inner_radius = radius // 2
+                pygame.draw.circle(self.screen, (200, 200, 0), (int(current_x), int(current_y)), inner_radius)
+
+            pygame.display.flip()
+            clock.tick(60)

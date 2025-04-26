@@ -46,7 +46,7 @@ class GameGUI:
 
             # AI turn
             if self.turn == -1 and running:
-                pygame.time.delay(900)  # small pause
+                pygame.time.delay(500)  # small pause
                 self._handle_ai_move()
 
             # Draw AI move
@@ -87,7 +87,12 @@ class GameGUI:
                     chosen = m
                     break
             if chosen:
-                # apply human move
+                # animate move BEFORE applying it
+                start = self.selected
+                end = chosen['path'][-1] if isinstance(chosen, dict) else chosen[1]
+                self.renderer.animate_move(start, end, selected=self.selected, legal_moves=self.legal_moves)
+
+                # apply the move to the board
                 self._apply_move(self.board, chosen, 1)
                 # dynamic obstacle update
                 self.board.update_obstacles()
@@ -100,7 +105,12 @@ class GameGUI:
     def _handle_ai_move(self):
         move = choose_move(self.board, self.ai_depth)
         if move:
-            # apply AI move
+            # animate AI move BEFORE applying it
+            start = move['path'][0] if isinstance(move, dict) else move[0]
+            end = move['path'][-1] if isinstance(move, dict) else move[1]
+            self.renderer.animate_move(start, end)
+
+            # apply move to the board
             self._apply_move(self.board, move, -1)
             # dynamic obstacle update
             self.board.update_obstacles()
