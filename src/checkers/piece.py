@@ -17,3 +17,7 @@ class Piece:
     @property
     def is_king(self) -> bool:
         return self.piece_type == PieceType.KING
+
+    def crown(self):
+        """Promote a man to a king."""
+        self.piece_type = PieceType.KING
