@@ -39,12 +39,17 @@ class GameGUI:
                 elif event.type == pygame.MOUSEBUTTONDOWN and self.turn == 1:
                     self._handle_human_click(event.pos)
 
+            # Draw player move
+            self.renderer.draw(self.selected, self.legal_moves)
+            pygame.display.flip()
+            self.clock.tick(60)
+
             # AI turn
             if self.turn == -1 and running:
-                pygame.time.delay(300)  # small pause
+                pygame.time.delay(900)  # small pause
                 self._handle_ai_move()
 
-            # Draw
+            # Draw AI move
             self.renderer.draw(self.selected, self.legal_moves)
             pygame.display.flip()
             self.clock.tick(60)
