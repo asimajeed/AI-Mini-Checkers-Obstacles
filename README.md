@@ -2,22 +2,29 @@
 
 A 6×6 checkers variant featuring dynamic **obstacle** squares that block movement and captures. Challenge a Minimax + alpha–beta pruning AI in a shifting, strategic environment.
 
+## Demonstration by Ayan Hasan
+
+<video width="1280" height="720" controls>
+  <source src="AI Project Demo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 ---
 
 ## 🔎 Features
 
 - **6×6 Dark‑Square Board**
-- **Random Obstacles**  
-  - Cannot be entered or jumped over  
+- **Random Obstacles**
+  - Cannot be entered or jumped over
   - Can be re-randomized mid‑game to create evolving choke points
-- **Human vs. AI**  
-  - AI (Player 2) uses Minimax with alpha–beta pruning  
+- **Human vs. AI**
+  - AI (Player 2) uses Minimax with alpha–beta pruning
   - Obstacle-aware heuristic balances material, mobility, and path clarity
-- **Optional Reinforcement Learning**  
+- **Optional Reinforcement Learning**
   - Self-play agent for tuning heuristic weights
-- **Pygame GUI**  
+- **Pygame GUI**
   - Click to move pieces, with highlighted legal moves
-- **Console Mode**  
+- **Console Mode**
   - Play directly from the command line (GUI optional)
 
 ---
@@ -25,12 +32,14 @@ A 6×6 checkers variant featuring dynamic **obstacle** squares that block moveme
 ## 🚀 Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/your-org/mini_checkers_obstacles.git
    cd mini_checkers_obstacles
    ```
 
 2. **Create & activate a virtual environment**
+
    ```bash
    python3 -m venv venv
    source venv/bin/activate
@@ -46,13 +55,14 @@ A 6×6 checkers variant featuring dynamic **obstacle** squares that block moveme
 ## 🎮 Usage
 
 **Play vs. AI**
+
 ```bash
 python run_game.py [--ai-depth N] [--obstacles M] [--width W] [--height H]
 ```
 
-- `--ai-depth` AI search depth in plies (default: `4`)  
-- `--obstacles` Initial obstacle count (default: `2`)  
-- `--width` / `--height` Window dimensions in pixels (default: `600×600`)  
+- `--ai-depth` AI search depth in plies (default: `4`)
+- `--obstacles` Initial obstacle count (default: `2`)
+- `--width` / `--height` Window dimensions in pixels (default: `600×600`)
 
 ---
 
@@ -80,6 +90,6 @@ mini_checkers_obstacles/
 
 ## 👥 Collaborators
 
-- Saiyed Asim Majeed  
-- Muhammad Muzammil  
-- Ayan Hasan
+- [Saiyed Asim Majeed](https://github.com/asimajeed)
+- [Muhammad Muzammil](https://github.com/MuhammadMuzammil21)
+- [Ayan Hasan](https://github.com/ayanh786)
